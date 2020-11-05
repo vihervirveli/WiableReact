@@ -1,5 +1,6 @@
 import agent from '../agent';
 import Header from './Header';
+import Footer from './Footer';
 import React from 'react';
 import { connect } from 'react-redux';
 import { APP_LOAD, REDIRECT } from '../constants/actionTypes';
@@ -66,6 +67,7 @@ class App extends React.Component {
             <Route path="/@:username/favorites" component={ProfileFavorites} />
             <Route path="/@:username" component={Profile} />
             </Switch>
+            <Footer />
         </div>
       );
     }
@@ -74,6 +76,7 @@ class App extends React.Component {
         <Header
           appName={this.props.appName}
           currentUser={this.props.currentUser} />
+        <Footer />
       </div>
     );
   }

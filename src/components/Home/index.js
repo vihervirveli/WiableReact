@@ -53,6 +53,12 @@ class Home extends React.Component {
 
             <div className="col-md-3">
               <div className="sidebar">
+              
+                <div className="logo">
+                <a href="http://www.wimmalab.org">  
+                    <img src={require('./../images/wimmalab-logo-rect-bgtransparent.png')} />
+                </a>
+                </div>
 
                 <p>Popular Tags</p>
 

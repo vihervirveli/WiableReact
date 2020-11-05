@@ -6,6 +6,14 @@ const Comment = props => {
   const comment = props.comment;
   const show = props.currentUser &&
     props.currentUser.username === comment.author.username;
+
+    let imgavatar = comment.author.image;    
+
+    if (!imgavatar) {      
+      imgavatar = "https://static.productionready.io/images/smiley-cyrus.jpg"
+    }
+
+
   return (
     <div className="card">
       <div className="card-block">
@@ -15,7 +23,7 @@ const Comment = props => {
         <Link
           to={`/@${comment.author.username}`}
           className="comment-author">
-          <img src={comment.author.image} className="comment-author-img" alt={comment.author.username} />
+          <img src={imgavatar} className="comment-author-img" alt={comment.author.username} />          
         </Link>
         &nbsp;
         <Link

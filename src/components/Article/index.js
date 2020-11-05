@@ -1,4 +1,5 @@
 import ArticleMeta from './ArticleMeta';
+import Banner from './../Home/Banner';
 import CommentContainer from './CommentContainer';
 import React from 'react';
 import agent from '../../agent';
@@ -8,7 +9,8 @@ import { ARTICLE_PAGE_LOADED, ARTICLE_PAGE_UNLOADED } from '../../constants/acti
 
 const mapStateToProps = state => ({
   ...state.article,
-  currentUser: state.common.currentUser
+  currentUser: state.common.currentUser,
+  appName: state.common.appName,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -40,8 +42,13 @@ class Article extends React.Component {
       this.props.currentUser.username === this.props.article.author.username;
     return (
       <div className="article-page">
+         
 
-        <div className="banner">
+        <Banner appName={this.props.appName} />
+
+
+
+        <div className="heading">
           <div className="container">
 
             <h1>{this.props.article.title}</h1>
