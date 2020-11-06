@@ -107,6 +107,7 @@ class Editor extends React.Component {
                     <input
                       className="form-control form-control-lg"
                       type="text"
+                      maxlength="50"
                       placeholder="Article Title"
                       value={this.props.title}
                       onChange={this.changeTitle} />
@@ -116,6 +117,7 @@ class Editor extends React.Component {
                     <input
                       className="form-control"
                       type="text"
+                      maxlength="100"
                       placeholder="What's this article about?"
                       value={this.props.description}
                       onChange={this.changeDescription} />
@@ -135,6 +137,7 @@ class Editor extends React.Component {
                     <input
                       className="form-control"
                       type="text"
+                      maxlength="100"
                       placeholder="Enter tags"
                       value={this.props.tagInput}
                       onChange={this.changeTagInput}
