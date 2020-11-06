@@ -29,6 +29,12 @@ class CommentInput extends React.Component {
   }
 
   render() {
+    let imgavatar = this.props.currentUser.image;    
+
+    if (!this.props.currentUser.image) {      
+      imgavatar = "https://static.productionready.io/images/smiley-cyrus.jpg"
+    } 
+
     return (
       <form className="card comment-form" onSubmit={this.createComment}>
         <div className="card-block">
@@ -40,10 +46,8 @@ class CommentInput extends React.Component {
           </textarea>
         </div>
         <div className="card-footer">
-          <img
-            src={this.props.currentUser.image}
-            className="comment-author-img"
-            alt={this.props.currentUser.username} />
+            <img src={imgavatar} className="nolog" alt={this.props.currentUser.username} />
+            <span className="comment_username">{this.props.currentUser.username}</span>
           <button
             className="btn btn-sm btn-primary"
             type="submit">

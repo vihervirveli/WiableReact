@@ -33,11 +33,17 @@ const ArticlePreview = props => {
     }
   };
 
+  let imgavatar = article.author.image; 
+  if (!imgavatar) {    
+    //article.author.imageClass = " nolog"
+    imgavatar = "https://static.productionready.io/images/smiley-cyrus.jpg"
+  } 
+
   return (
     <div className="article-preview">
       <div className="article-meta">
         <Link to={`/@${article.author.username}`}>
-          <img src={article.author.image} alt={article.author.username} />
+          <img src={imgavatar} alt={article.author.username} />
         </Link>
 
         <div className="info">

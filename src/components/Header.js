@@ -32,9 +32,18 @@ const LoggedOutView = props => {
 
 const LoggedInView = props => {
   if (props.currentUser) {
+    //let imgavatar = <img src={props.currentUser.image} className="user-pic" alt={props.currentUser.username} />
+    //{props.currentUser.username}
+
+    let imgavatar = props.currentUser.image;    
+
+    if (!imgavatar) {    
+      props.currentUser.imageClass = " nolog"
+      imgavatar = "https://static.productionready.io/images/smiley-cyrus.jpg"
+    } 
+
     return (
       <ul className="nav navbar-nav pull-xs-right">
-
         <li className="nav-item">
           <Link to="/" className="nav-link">
             Home
@@ -56,8 +65,8 @@ const LoggedInView = props => {
         <li className="nav-item">
           <Link
             to={`/@${props.currentUser.username}`}
-            className="nav-link">
-            <img src={props.currentUser.image} className="user-pic" alt={props.currentUser.username} />
+            className={`nav-link nolog`}> 
+            <img src={imgavatar} className="user-pic" alt={props.currentUser.username} />
             {props.currentUser.username}
           </Link>
         </li>
@@ -73,15 +82,22 @@ class Header extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-light">
-        <div className="container">
-
-          <Link to="/" className="navbar-brand">
-            {this.props.appName.toLowerCase()}
-          </Link>
-
+        <div className="container"> 
+          
+          {/*<Link to="/" className="navbar-brand">
+            {this.props.appName.toUpperCase()}
+          </Link>*/}
+          <a href="http://www.wimmalab.org" className="navbar-brand">   
+            {this.props.appName.toUpperCase()}
+          </a>
           <LoggedOutView currentUser={this.props.currentUser} />
 
           <LoggedInView currentUser={this.props.currentUser} />
+          
+          <a href="http://www.wimmalab.org">   
+          <img src={require('./images/wimmalab-logo-square-small-green.png')} />
+          </a>
+
         </div>
       </nav>
     );
