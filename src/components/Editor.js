@@ -92,7 +92,44 @@ class Editor extends React.Component {
   }
 
   testingForBadWords(){
+    //change title anyways
     {this.changeTitle}
+    
+    const badWords = [saatana,
+      perkele,
+      perkeleen,
+      perhana,
+      perhanan,
+      vittu,
+      vitun,
+      paska,
+      perskule,
+      perskuleen,
+      paskan,
+      hinttari]
+    const usedBadWords = []
+    const titleWords = this.props.title.split(" ")
+    for (let i= 0; i < titleWords.length; i++){
+      if(badWords.indexOf(titleWords[i]) > -1){
+        usedBadWords.push(titleWords[i])
+      }
+    }
+    if (usedBadWords.length > 0){
+      const badWordsList = usedBadWords.map((badword, index) => {
+        <li key={index}>{badword}</li>
+      })
+      return (
+        <div className="Badword">
+          <p>Hei, tiesitkö, että käytit seuraavia sanoja
+            kirjoituksessasi?
+          </p>
+          <ul>
+          {badWordsList}
+          </ul>
+        </div>
+      )
+    }
+    
   }
   render() {
     return (
