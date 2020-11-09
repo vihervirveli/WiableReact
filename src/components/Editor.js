@@ -91,6 +91,9 @@ class Editor extends React.Component {
     this.props.onUnload();
   }
 
+  testingForbadWords(){
+    {this.changeTitle}
+  }
   render() {
     return (
       <div className="editor-page">
@@ -109,7 +112,7 @@ class Editor extends React.Component {
                       type="text"
                       placeholder="Article Title"
                       value={this.props.title}
-                      onChange={this.changeTitle} />
+                      onChange={this.testingForbadWords} />
                   </fieldset>
 
                   <fieldset className="form-group">
