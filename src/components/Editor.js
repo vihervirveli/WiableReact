@@ -93,7 +93,7 @@ class Editor extends React.Component {
 
   testingForBadWords(){
     //change title anyways
-    {this.changeTitle}
+    
     
     const badWords = ["saatana",
       "perkele",
@@ -150,7 +150,9 @@ class Editor extends React.Component {
                       type="text"
                       placeholder="Article Title"
                       value={this.props.title}
-                      onChange={this.testingForBadWords} />
+                      onChange={()=> 
+                      {this.changeTitle,
+                      this.testingForBadWords}} />
                   </fieldset>
 
                   <fieldset className="form-group">
