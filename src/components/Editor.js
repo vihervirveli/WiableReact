@@ -95,18 +95,18 @@ class Editor extends React.Component {
     //change title anyways
     {this.changeTitle}
     
-    const badWords = [saatana,
-      perkele,
-      perkeleen,
-      perhana,
-      perhanan,
-      vittu,
-      vitun,
-      paska,
-      perskule,
-      perskuleen,
-      paskan,
-      hinttari]
+    const badWords = ["saatana",
+      "perkele",
+      "perkeleen",
+      "perhana",
+      "perhanan",
+      "vittu",
+      "vitun",
+      "paska",
+      "perskule",
+      "perskuleen",
+      "paskan",
+      "hinttari"]
     const usedBadWords = []
     const titleWords = this.props.title.split(" ")
     for (let i= 0; i < titleWords.length; i++){
