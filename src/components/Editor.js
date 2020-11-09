@@ -118,15 +118,16 @@ class Editor extends React.Component {
       const badWordsList = usedBadWords.map((badword, index) => {
         <li key={index}>{badword}</li>
       })
-      return (
-        <div className="Badword">
-          <p>Hei, tiesitkö, että käytit seuraavia sanoja
-            kirjoituksessasi?
-          </p>
-          <ul>
-          {badWordsList}
-          </ul>
-        </div>
+      
+      return (setTimeout(<div id="Badword">
+        <p>Hei, tiesitkö, että käytit seuraavia sanoja
+        kirjoituksessasi?
+        </p>
+        <ul>
+        {badWordsList}
+        </ul>
+        </div>, 5000)
+
       )
     }
     
