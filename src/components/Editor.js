@@ -40,7 +40,7 @@ class Editor extends React.Component {
     this.changeDescription = updateFieldEvent('description');
     this.changeBody = updateFieldEvent('body');
     this.changeTagInput = updateFieldEvent('tagInput');
-
+   //his.testingForBadWords = this.testingForBadWords();
     this.watchForEnter = ev => {
       if (ev.keyCode === 13) {
         ev.preventDefault();
@@ -68,6 +68,46 @@ class Editor extends React.Component {
 
       this.props.onSubmit(promise);
     };
+
+    this.testingForBadWords = () => {
+       
+      const badWords = ["saatana",
+        "perkele",
+        "perkeleen",
+        "perhana",
+        "perhanan",
+        "vittu",
+        "vitun",
+        "paska",
+        "perskule",
+        "perskuleen",
+        "paskan",
+        "hinttari"]
+      const usedBadWords = []
+      const titleWords = this.props.title.split(" ")
+      for (let i= 0; i < titleWords.length; i++){
+        if(badWords.indexOf(titleWords[i]) > -1){
+          usedBadWords.push(titleWords[i])
+        }
+      }
+      if (usedBadWords.length > 0){
+        const badWordsList = usedBadWords.map((badword, index) => {
+          <li key={index}>{badword}</li>
+        })
+        
+        return (setTimeout(<div id="Badword">
+          <p>Hei, tiesitkö, että käytit seuraavia sanoja
+          kirjoituksessasi?
+          </p>
+          <ul>
+          {badWordsList}
+          </ul>
+          </div>, 5000)
+  
+        )
+      }
+      
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -91,47 +131,7 @@ class Editor extends React.Component {
     this.props.onUnload();
   }
 
-  testingForBadWords(){
-    //change title anyways
-    
-    
-    const badWords = ["saatana",
-      "perkele",
-      "perkeleen",
-      "perhana",
-      "perhanan",
-      "vittu",
-      "vitun",
-      "paska",
-      "perskule",
-      "perskuleen",
-      "paskan",
-      "hinttari"]
-    const usedBadWords = []
-    const titleWords = this.props.title.split(" ")
-    for (let i= 0; i < titleWords.length; i++){
-      if(badWords.indexOf(titleWords[i]) > -1){
-        usedBadWords.push(titleWords[i])
-      }
-    }
-    if (usedBadWords.length > 0){
-      const badWordsList = usedBadWords.map((badword, index) => {
-        <li key={index}>{badword}</li>
-      })
-      
-      return (setTimeout(<div id="Badword">
-        <p>Hei, tiesitkö, että käytit seuraavia sanoja
-        kirjoituksessasi?
-        </p>
-        <ul>
-        {badWordsList}
-        </ul>
-        </div>, 5000)
-
-      )
-    }
-    
-  }
+  
   render() {
     return (
       <div className="editor-page">
@@ -150,9 +150,8 @@ class Editor extends React.Component {
                       type="text"
                       placeholder="Article Title"
                       value={this.props.title}
-                      onChange={()=> 
-                      {this.changeTitle,
-                      this.testingForBadWords}} />
+                      onChange={this.changeTitle}
+                      onBlur={this.testingForBadWords}/>
                   </fieldset>
 
                   <fieldset className="form-group">
