@@ -85,11 +85,13 @@ class Editor extends React.Component {
         "perskuleen",
         "paskan",
         "hinttari"]
+        console.log(this.props.tagList);
       const usedBadWords = []
       let fieldWords;
       if(curseField === "title"){
         fieldWords = this.props.title.split(" ")
       }
+      
       else if(curseField === "body") fieldWords = this.props.body.split(" ")
       else if(curseField === "tagit") fieldWords = this.props.tagList.toArray()
       else if(curseField === "description") fieldWords = this.props.description.split(" ")
