@@ -96,8 +96,8 @@ class Editor extends React.Component {
       if (usedBadWords.length > 0){
         const badWordsList = usedBadWords.map((badword, index) => {
           let li = document.createElement('li')
-          li.key = {index}
-          li.appendChild(document.createTextNode({badword}))
+          li.key = index
+          li.appendChild(document.createTextNode(badword))
           ul.appendChild(li)       
         })
         
