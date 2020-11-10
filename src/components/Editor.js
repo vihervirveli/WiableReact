@@ -163,33 +163,39 @@ class Editor extends React.Component {
                       onBlur={() => {this.testingForBadWords("#containerSwear","#titleAlertForSwearWords")}}/>
                   </fieldset>
 
-                  <fieldset className="form-group">
+                  <fieldset id="description" className="form-group">
                     <input
+                      id="descriptionContainer"
                       className="form-control"
                       type="text"
                       placeholder="What's this article about?"
                       value={this.props.description}
-                      onChange={this.changeDescription} />
+                      onChange={this.changeDescription} 
+                      onBlur={() => {this.testingForBadWords("description","descriptionContainer")}}/>
                   </fieldset>
 
-                  <fieldset className="form-group">
+                  <fieldset id="body" className="form-group">
                     <textarea
+                      id="bodyContainer"
                       className="form-control"
                       rows="8"
                       placeholder="Write your article (in markdown)"
                       value={this.props.body}
-                      onChange={this.changeBody}>
+                      onChange={this.changeBody}
+                      onBlur={() => {this.testingForBadWords("body","bodyContainer")}}>
                     </textarea>
                   </fieldset>
 
-                  <fieldset className="form-group">
+                  <fieldset id="tagit" className="form-group">
                     <input
+                      id="tagitContainer"
                       className="form-control"
                       type="text"
                       placeholder="Enter tags"
                       value={this.props.tagInput}
                       onChange={this.changeTagInput}
-                      onKeyUp={this.watchForEnter} />
+                      onKeyUp={this.watchForEnter}
+                      onBlur={() => {this.testingForBadWords("tagit","tagitContainer")}} />
 
                     <div className="tag-list">
                       {
