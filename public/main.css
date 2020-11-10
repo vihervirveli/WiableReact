@@ -5840,7 +5840,8 @@ footer .partner img {
     font-weight: bold;
     padding-top: 3px;
 }
-#Badword {
-   background-color: #ff0; 
-   color: black;
+
+.swearwordTimeOut{
+    background-color: #ff0; 
+    color: black;
 }

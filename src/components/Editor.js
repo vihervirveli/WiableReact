@@ -99,16 +99,18 @@ class Editor extends React.Component {
         
       const div = document.createElement('div')
       div.className = `swearwordTimeOut`
-      let msg = `Hei, tiesitkö, että käytit seuraavia sanoja
+      let msg = `Hei, tiesitkö, että käytit seuraavia kirosanoja
       kirjoituksessasi?`
       msg += <ul>${badWordsList}</ul>
-      
+      const ul = document.createElement('ul')
+      ul.appendChild(badWordsList) 
       div.appendChild(document.createTextNode(msg))
-      const form = document.querySelector("titleAlertForSwearWords")
-      const container = document.querySelector("containerSwear")
+      div.appendChild(ul)
+      const form = document.querySelector("#titleAlertForSwearWords")
+      const container = document.querySelector("#containerSwear")
       container.insertBefore(div, form)
       setTimeout(function(){
-        document.querySelector('swearwordTimeOut').remove()}, 3000)
+        document.querySelector('.swearwordTimeOut').remove()}, 4000)
       }
       
     }
