@@ -171,7 +171,7 @@ class Editor extends React.Component {
                       placeholder="What's this article about?"
                       value={this.props.description}
                       onChange={this.changeDescription} 
-                      onBlur={() => {this.testingForBadWords("description","descriptionContainer")}}/>
+                      onBlur={() => {this.testingForBadWords("#description","#descriptionContainer")}}/>
                   </fieldset>
 
                   <fieldset id="body" className="form-group">
@@ -182,7 +182,7 @@ class Editor extends React.Component {
                       placeholder="Write your article (in markdown)"
                       value={this.props.body}
                       onChange={this.changeBody}
-                      onBlur={() => {this.testingForBadWords("body","bodyContainer")}}>
+                      onBlur={() => {this.testingForBadWords("#body","#bodyContainer")}}>
                     </textarea>
                   </fieldset>
 
@@ -195,7 +195,7 @@ class Editor extends React.Component {
                       value={this.props.tagInput}
                       onChange={this.changeTagInput}
                       onKeyUp={this.watchForEnter}
-                      onBlur={() => {this.testingForBadWords("tagit","tagitContainer")}} />
+                      onBlur={() => {this.testingForBadWords("#tagit","#tagitContainer")}} />
 
                     <div className="tag-list">
                       {
