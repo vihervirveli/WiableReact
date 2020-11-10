@@ -160,7 +160,7 @@ class Editor extends React.Component {
                       placeholder="Article Title"
                       value={this.props.title}
                       onChange={this.changeTitle}
-                      onBlur={() => {this.testingForBadWords("#containerSwear","titleAlertForSwearWords")}}/>
+                      onBlur={() => {this.testingForBadWords("#containerSwear","#titleAlertForSwearWords")}}/>
                   </fieldset>
 
                   <fieldset className="form-group">
