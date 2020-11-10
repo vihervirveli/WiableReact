@@ -94,7 +94,7 @@ class Editor extends React.Component {
       }
       
       else if(curseField === "body") fieldWords = this.props.body.split(" ")
-      else if(curseField === "tagit") fieldWords = this.props.tagList.toArray()
+      else if(curseField === "tagit") fieldWords = this.props.tagList
       else if(curseField === "description") fieldWords = this.props.description.split(" ")
       for (let i= 0; i < fieldWords.length; i++){
         if(badWords.indexOf(fieldWords[i]) > -1){
