@@ -85,7 +85,8 @@ class Editor extends React.Component {
         "perskuleen",
         "paskan",
         "hinttari"]
-        console.log("Hei täällä! "+this.props.tagList);
+        console.log("Hei täällä!")
+        console.log(this.props.tagList)
       const usedBadWords = []
       let fieldWords;
       if(curseField === "title"){
