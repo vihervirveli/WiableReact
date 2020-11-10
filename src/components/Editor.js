@@ -70,8 +70,9 @@ class Editor extends React.Component {
     };
 
     this.testingForBadWords = () => {
-       
-      const badWords = ["saatana",
+      if(this.props.title.length > 0){  
+      const badWords = 
+      ["saatana",
         "perkele",
         "perkeleen",
         "perhana",
@@ -79,6 +80,7 @@ class Editor extends React.Component {
         "vittu",
         "vitun",
         "paska",
+        "perse",
         "perskule",
         "perskuleen",
         "paskan",
@@ -95,19 +97,22 @@ class Editor extends React.Component {
           <li key={index}>{badword}</li>
         })
         
-        return (setTimeout(<div id="Badword">
-          <p>Hei, tiesitkö, että käytit seuraavia sanoja
-          kirjoituksessasi?
-          </p>
-          <ul>
-          {badWordsList}
-          </ul>
-          </div>, 5000)
-  
-        )
+      const div = document.createElement('div')
+      div.className = `swearwordTimeOut`
+      let msg = `Hei, tiesitkö, että käytit seuraavia sanoja
+      kirjoituksessasi?`
+      msg += <ul>${badWordsList}</ul>
+      
+      div.appendChild(document.createTextNode(msg))
+      const form = document.querySelector("titleAlertForSwearWords")
+      const container = document.querySelector("containerSwear")
+      container.insertBefore(div, form)
+      setTimeout(function(){
+        document.querySelector('swearwordTimeOut').remove()}, 3000)
       }
       
     }
+  }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -137,15 +142,15 @@ class Editor extends React.Component {
       <div className="editor-page">
         <div className="container page">
           <div className="row">
-            <div className="col-md-10 offset-md-1 col-xs-12">
+            <div id="containerSwear" className="col-md-10 offset-md-1 col-xs-12">
 
               <ListErrors errors={this.props.errors}></ListErrors>
 
-              <form>
+              <form id="titleAlertForSwearWords">
                 <fieldset>
 
                   <fieldset className="form-group">
-                    <input
+                    <input                      
                       className="form-control form-control-lg"
                       type="text"
                       placeholder="Article Title"
