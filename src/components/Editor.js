@@ -69,7 +69,7 @@ class Editor extends React.Component {
       this.props.onSubmit(promise);
     };
 
-    this.testingForBadWords = () => {
+    this.testingForBadWords = (placeAbove, placeBelow) => {
       if(this.props.title.length > 0){  
       const badWords = 
       ["saatana",
@@ -108,8 +108,8 @@ class Editor extends React.Component {
       
       div.appendChild(document.createTextNode(msg))
       div.appendChild(ul)
-      const form = document.querySelector("#titleAlertForSwearWords")
-      const container = document.querySelector("#containerSwear")
+      const form = document.querySelector(placeBelow)
+      const container = document.querySelector(placeAbove)
       container.insertBefore(div, form)
       setTimeout(function(){
         document.querySelector('.swearwordTimeOut').remove()}, 4000)
@@ -160,7 +160,7 @@ class Editor extends React.Component {
                       placeholder="Article Title"
                       value={this.props.title}
                       onChange={this.changeTitle}
-                      onBlur={this.testingForBadWords}/>
+                      onBlur={this.testingForBadWords("#containerSwear","titleAlertForSwearWords")}/>
                   </fieldset>
 
                   <fieldset className="form-group">
