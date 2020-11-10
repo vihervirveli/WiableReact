@@ -41,8 +41,8 @@ class Editor extends React.Component {
     this.changeBody = updateFieldEvent('body');
     this.changeTagInput = updateFieldEvent('tagInput');
    //his.testingForBadWords = this.testingForBadWords();
-    this.watchForEnter = ev => {
-      if (ev.keyCode === 13) {
+    this.watchForSpace = ev => {
+      if (ev.keyCode === 32) { //enter === 13
         ev.preventDefault();
         this.props.onAddTag();
       }
@@ -202,7 +202,7 @@ class Editor extends React.Component {
                       placeholder="Enter tags"
                       value={this.props.tagInput}
                       onChange={this.changeTagInput}
-                      onKeyUp={this.watchForEnter}
+                      onKeyUp={this.watchForSpace}
                       onBlur={() => {this.testingForBadWords("#tagit","#tagitContainer", "tagit")}} />
 
                     <div className="tag-list">
