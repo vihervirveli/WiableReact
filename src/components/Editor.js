@@ -92,18 +92,20 @@ class Editor extends React.Component {
           usedBadWords.push(titleWords[i])
         }
       }
+      const ul = document.createElement('ul')
       if (usedBadWords.length > 0){
         const badWordsList = usedBadWords.map((badword, index) => {
-          <li key={index}>{badword}</li>
+          let li = document.createElement('li')
+          li.key = {index}
+          li.appendChild(document.createTextNode({badword}))
+          ul.appendChild(li)       
         })
         
       const div = document.createElement('div')
       div.className = `swearwordTimeOut`
       let msg = `Hei, tiesitkö, että käytit seuraavia kirosanoja
       kirjoituksessasi?`
-      msg += <ul>${badWordsList}</ul>
-      const ul = document.createElement('ul')
-      ul.appendChild(badWordsList) 
+      
       div.appendChild(document.createTextNode(msg))
       div.appendChild(ul)
       const form = document.querySelector("#titleAlertForSwearWords")
