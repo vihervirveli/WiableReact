@@ -45,7 +45,9 @@ class Editor extends React.Component {
       if (ev.keyCode === 32) { //enter === 13
         ev.preventDefault();
         this.props.onAddTag();
-        
+        this.testingForBadWords(
+          "#tagit","#tagitContainer", 
+          "tagit")
       }
     };
 
@@ -113,7 +115,8 @@ class Editor extends React.Component {
           let li = document.createElement('li')
           li.key = index
           li.appendChild(document.createTextNode(badword))
-          ul.appendChild(li)       
+          ul.appendChild(li)    
+          console.log("badwordslist tageista ei ole tyhjä")   
         })
         
       const div = document.createElement('div')
@@ -206,12 +209,11 @@ class Editor extends React.Component {
                       id="tagitContainer"
                       className="form-control"
                       type="text"
-                      placeholder="Enter tags & press space between tags"
+                      placeholder="Type in your tags & press space between tags"
                       value={this.props.tagInput}
                       onChange={this.changeTagInput}
                       onKeyUp={this.watchForSpace}
-                      onBlur={() => {this.testingForBadWords("#tagit","#tagitContainer", "tagit")
-                      }}
+                                            
                        />
 
                     <div className="tag-list">
