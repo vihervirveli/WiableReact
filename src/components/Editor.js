@@ -44,8 +44,9 @@ class Editor extends React.Component {
     this.watchForSpace = ev => {
       if (ev.keyCode === 32) { //enter === 13
         ev.preventDefault();
-        this.props.onAddTag();
         this.testingForBadWords("#tagit","#tagitContainer", "tagit")
+        this.props.onAddTag();
+        
       }
     };
 
