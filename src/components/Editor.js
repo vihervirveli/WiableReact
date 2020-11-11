@@ -46,6 +46,7 @@ class Editor extends React.Component {
         ev.preventDefault();
         this.props.onAddTag();
         this.testingForBadWords("#tagit","#tagitContainer", "tagit")
+      console.log("menee tänne asti")
       }
     };
 
