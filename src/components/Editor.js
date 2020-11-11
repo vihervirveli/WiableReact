@@ -101,12 +101,8 @@ class Editor extends React.Component {
         fieldWords = this.props.title.split(" ")
       }
       else if(curseField === "body") fieldWords = this.props.body.split(" ")
-      else if(curseField === "tagit") {
-        fieldWords = this.props.tagList
-        console.log("fieldwords")
-        console.log(fieldWords)
-        console.log(this.props.tagList)
-      }
+      else if(curseField === "tagit") fieldWords = this.props.tagList
+      
       else if(curseField === "description") fieldWords = this.props.description.split(" ")
       if(fieldWords.length > 0){
       for (let i= 0; i < fieldWords.length; i++){
@@ -129,7 +125,9 @@ class Editor extends React.Component {
       div.className = `swearwordTimeOut`
       let msg = `Hei, tiesitkö, että käytit seuraavia kirosanoja
       kirjoituksessasi?`
-      
+      console.log("fieldwords")
+        console.log(usedBadWords)
+        console.log(this.props.tagList)
       div.appendChild(document.createTextNode(msg))
       div.appendChild(ul)
       const form = document.querySelector(placeBelow)
