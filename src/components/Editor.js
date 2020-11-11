@@ -96,6 +96,8 @@ class Editor extends React.Component {
         
       const usedBadWords = []
       let fieldWords;
+      console.log("fieldWords")
+      console.log(this.props.tagList)
       if(curseField === "title"){
         fieldWords = this.props.title.split(" ")
       }
@@ -103,8 +105,7 @@ class Editor extends React.Component {
       else if(curseField === "body") fieldWords = this.props.body.split(" ")
       else if(curseField === "tagit") fieldWords = this.props.tagList
       else if(curseField === "description") fieldWords = this.props.description.split(" ")
-      console.log("fieldWords")
-      console.log(fieldWords)
+      
       for (let i= 0; i < fieldWords.length; i++){
         let currentWord = fieldWords[i].toLowerCase()
         if(badWords.indexOf(currentWord) > -1){
