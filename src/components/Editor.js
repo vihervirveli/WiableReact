@@ -113,7 +113,8 @@ class Editor extends React.Component {
       }
       const ul = document.createElement('ul')
       if (usedBadWords.length > 0){
-        const badWordsList = usedBadWords.map((badword, index) => {
+        //const badWordsList = 
+        usedBadWords.map((badword, index) => {
           let li = document.createElement('li')
           li.key = index
           li.appendChild(document.createTextNode(badword))
@@ -125,9 +126,9 @@ class Editor extends React.Component {
       div.className = `swearwordTimeOut`
       let msg = `Hei, tiesitkö, että käytit seuraavia kirosanoja
       kirjoituksessasi?`
-      console.log("fieldwords")
+      console.log("UsedBadWords")
         console.log(usedBadWords)
-        console.log(this.props.tagList)
+      
       div.appendChild(document.createTextNode(msg))
       div.appendChild(ul)
       const form = document.querySelector(placeBelow)
