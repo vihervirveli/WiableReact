@@ -44,7 +44,7 @@ class Editor extends React.Component {
     this.watchForSpace = ev => {
       if (ev.keyCode === 32) { //enter === 13
         ev.preventDefault();
-        this.testingForBadWords("#tagit","#tagitContainer", "tagit")
+        this.props.testingForBadWords("#tagit","#tagitContainer", "tagit")
         this.props.onAddTag();
         
       }
@@ -75,12 +75,16 @@ class Editor extends React.Component {
       if(this.props.title.length > 0){  
       const badWords = 
       ["saatana",
-        "perkele",
+      "saatanan",  
+      "perkele",
         "perkeleen",
         "perhana",
         "perhanan",
         "vittu",
         "vitun",
+        "helkkari",
+        "helkkarin",
+        "paskan",
         "paska",
         "perse",
         "perskule",
