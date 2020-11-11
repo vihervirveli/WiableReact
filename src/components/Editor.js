@@ -73,7 +73,7 @@ class Editor extends React.Component {
     };
   
     this.testingForBadWords = (placeAbove, placeBelow, curseField) => {
-      if(this.props.title.length > 0){  
+        
       const badWords = 
       ["saatana",
       "saatanan",  
@@ -96,16 +96,14 @@ class Editor extends React.Component {
         
       const usedBadWords = []
       let fieldWords;
-      console.log("fieldWords")
-      console.log(this.props.tagList)
+      
       if(curseField === "title"){
         fieldWords = this.props.title.split(" ")
       }
-      
       else if(curseField === "body") fieldWords = this.props.body.split(" ")
       else if(curseField === "tagit") fieldWords = this.props.tagList
       else if(curseField === "description") fieldWords = this.props.description.split(" ")
-      
+      if(fieldWords.length > 0){
       for (let i= 0; i < fieldWords.length; i++){
         let currentWord = fieldWords[i].toLowerCase()
         if(badWords.indexOf(currentWord) > -1){
