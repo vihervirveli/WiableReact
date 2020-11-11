@@ -105,6 +105,8 @@ class Editor extends React.Component {
       
       else if(curseField === "description") fieldWords = this.props.description.split(" ")
       if(fieldWords.length > 0){
+        console.log("fieldWords")
+        console.log(fieldWords)
       for (let i= 0; i < fieldWords.length; i++){
         let currentWord = fieldWords[i].toLowerCase()
         if(badWords.indexOf(currentWord) > -1){
@@ -126,8 +128,7 @@ class Editor extends React.Component {
       div.className = `swearwordTimeOut`
       let msg = `Hei, tiesitkö, että käytit seuraavia kirosanoja
       kirjoituksessasi?`
-      console.log("UsedBadWords")
-        console.log(usedBadWords)
+      
       
       div.appendChild(document.createTextNode(msg))
       div.appendChild(ul)
