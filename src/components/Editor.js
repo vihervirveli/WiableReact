@@ -103,6 +103,8 @@ class Editor extends React.Component {
       else if(curseField === "body") fieldWords = this.props.body.split(" ")
       else if(curseField === "tagit") fieldWords = this.props.tagList
       else if(curseField === "description") fieldWords = this.props.description.split(" ")
+      console.log("fieldWords")
+      console.log(fieldWords)
       for (let i= 0; i < fieldWords.length; i++){
         let currentWord = fieldWords[i].toLowerCase()
         if(badWords.indexOf(currentWord) > -1){
@@ -116,7 +118,7 @@ class Editor extends React.Component {
           li.key = index
           li.appendChild(document.createTextNode(badword))
           ul.appendChild(li)    
-          console.log("badwordslist tageista ei ole tyhjä")   
+             
         })
         
       const div = document.createElement('div')
