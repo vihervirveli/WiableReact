@@ -96,8 +96,9 @@ class Editor extends React.Component {
       else if(curseField === "tagit") fieldWords = this.props.tagList
       else if(curseField === "description") fieldWords = this.props.description.split(" ")
       for (let i= 0; i < fieldWords.length; i++){
-        if(badWords.indexOf(fieldWords[i]) > -1){
-          usedBadWords.push(fieldWords[i])
+        let currentWord = fieldWords[i].toLowerCase()
+        if(badWords.indexOf(currentWord) > -1){
+          usedBadWords.push(currentWord)
         }
       }
       const ul = document.createElement('ul')
