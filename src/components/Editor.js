@@ -199,7 +199,7 @@ class Editor extends React.Component {
                       id="tagitContainer"
                       className="form-control"
                       type="text"
-                      placeholder="Enter tags"
+                      placeholder="Enter tags & press space between tags"
                       value={this.props.tagInput}
                       onChange={this.changeTagInput}
                       onKeyUp={this.watchForSpace}
