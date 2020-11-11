@@ -45,6 +45,7 @@ class Editor extends React.Component {
       if (ev.keyCode === 32) { //enter === 13
         ev.preventDefault();
         this.props.onAddTag();
+        this.testingForBadWords("#tagit","#tagitContainer", "tagit")
       }
     };
 
@@ -68,7 +69,7 @@ class Editor extends React.Component {
 
       this.props.onSubmit(promise);
     };
-
+  
     this.testingForBadWords = (placeAbove, placeBelow, curseField) => {
       if(this.props.title.length > 0){  
       const badWords = 
@@ -204,7 +205,7 @@ class Editor extends React.Component {
                       value={this.props.tagInput}
                       onChange={this.changeTagInput}
                       onKeyUp={this.watchForSpace}
-                      onBlur={() => {this.testingForBadWords("#tagit","#tagitContainer", "tagit")}} />
+                       />
 
                     <div className="tag-list">
                       {
