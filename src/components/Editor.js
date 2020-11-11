@@ -105,6 +105,7 @@ class Editor extends React.Component {
         fieldWords = this.props.tagList
         console.log("fieldwords")
         console.log(fieldWords)
+        console.log(this.props.tagList)
       }
       else if(curseField === "description") fieldWords = this.props.description.split(" ")
       if(fieldWords.length > 0){
