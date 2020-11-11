@@ -45,8 +45,7 @@ class Editor extends React.Component {
       if (ev.keyCode === 32) { //enter === 13
         ev.preventDefault();
         this.props.onAddTag();
-        this.testingForBadWords("#tagit","#tagitContainer", "tagit")
-      console.log("menee tänne asti")
+        
       }
     };
 
@@ -89,6 +88,7 @@ class Editor extends React.Component {
         "perse",
         "perskule",
         "perskuleen",
+        "perskutarallaa",
         "paskan",
         "hinttari"]
         
@@ -210,6 +210,8 @@ class Editor extends React.Component {
                       value={this.props.tagInput}
                       onChange={this.changeTagInput}
                       onKeyUp={this.watchForSpace}
+                      onBlur={() => {this.testingForBadWords("#tagit","#tagitContainer", "tagit")
+                      }}
                        />
 
                     <div className="tag-list">
