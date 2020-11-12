@@ -44,11 +44,11 @@ class Editor extends React.Component {
     this.watchForSpace = ev => {
       if (ev.keyCode === 32) { //enter === 13
         ev.preventDefault();
-        this.props.onAddTag();
+        
         this.testingForBadWords(
             "#tagit","#tagitContainer", 
             "tagit")
-  
+        this.props.onAddTag();
         
       }
     };
@@ -110,14 +110,20 @@ class Editor extends React.Component {
       else if(curseField === "description") fieldWords = this.props.description.split(" ")
       
       if(fieldWords.length > 0){
+        
       for (let i= 0; i < fieldWords.length; i++){
         let currentWord = fieldWords[i].toLowerCase()
-        let indexi = badWords.indexOf(currentWord)
+        console.log("currentWord")
         console.log(currentWord)
-        console.log(indexi)
+
+        if (currentWord.length > 1){
+        let indexi = badWords.indexOf(currentWord)
+        
         if(indexi > -1){
           usedBadWords.push(currentWord)
+          console.log("added to usedBadWords")
         }
+      }
       }
 
       console.log("usedBadWords")
