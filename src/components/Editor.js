@@ -44,10 +44,10 @@ class Editor extends React.Component {
     this.watchForSpace = ev => {
       if (ev.keyCode === 32) { //enter === 13
         ev.preventDefault();
-        
+        const tagiArr = this.props.tagList
         this.testingForBadWords(
             "#tagit","#tagitContainer", 
-            "tagit")
+            "tagit", tagiArr)
         this.props.onAddTag();
         
       }
@@ -74,7 +74,14 @@ class Editor extends React.Component {
       this.props.onSubmit(promise);
     };
   
-    this.testingForBadWords = (placeAbove, placeBelow, curseField) => {
+    /**
+     * Function that will check the words typed by the user against a list of swear words and insults
+     * @param {The starting position of where the temp div will be placed to notify the user of the swearwords they used} placeAbove 
+     * @param {The ending position of where the temp div will be place to notify the user of the swearwords they used} placeBelow 
+     * @param {The field in question: options are title, description, body, and tagit} curseField 
+     * @param {Specifically for the tags} tagArray 
+     */
+    this.testingForBadWords = (placeAbove, placeBelow, curseField, tagArray) => {
         
       const badWords = 
       ["saatana",
@@ -104,8 +111,14 @@ class Editor extends React.Component {
       }
       else if(curseField === "body") fieldWords = this.props.body.split(" ")
       else if(curseField === "tagit") { 
-        fieldWords = this.props.tagList
-        fieldWords.push(this.props.tagInput)
+        fieldWords = tagArray
+        const currentTag = this.props.tagInput
+        if(fieldWords[fieldWords.length-1] !== currentTag) fieldWords.push(currentTag)
+        for(let i = 0; i < fieldWords.length; i++){
+          (console.log("listicle"))
+          console.log(fieldWords[i])
+        }
+        
       }
       else if(curseField === "description") fieldWords = this.props.description.split(" ")
       
@@ -199,7 +212,7 @@ class Editor extends React.Component {
                       placeholder="Article Title"
                       value={this.props.title}
                       onChange={this.changeTitle}
-                      onBlur={() => {this.testingForBadWords("#containerSwear","#titleAlertForSwearWords", "title")}}/>
+                      onBlur={() => {this.testingForBadWords("#containerSwear","#titleAlertForSwearWords", "title", [])}}/>
                   </fieldset>
 
                   <fieldset id="description" className="form-group">
@@ -210,7 +223,7 @@ class Editor extends React.Component {
                       placeholder="What's this article about?"
                       value={this.props.description}
                       onChange={this.changeDescription} 
-                      onBlur={() => {this.testingForBadWords("#description","#descriptionContainer", "description")}}/>
+                      onBlur={() => {this.testingForBadWords("#description","#descriptionContainer", "description", [])}}/>
                   </fieldset>
 
                   <fieldset id="body" className="form-group">
@@ -221,7 +234,7 @@ class Editor extends React.Component {
                       placeholder="Write your article (in markdown)"
                       value={this.props.body}
                       onChange={this.changeBody}
-                      onBlur={() => {this.testingForBadWords("#body","#bodyContainer", "body")}}>
+                      onBlur={() => {this.testingForBadWords("#body","#bodyContainer", "body",[])}}>
                     </textarea>
                   </fieldset>
 
