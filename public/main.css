@@ -5852,9 +5852,7 @@ footer .partner img {
 }
 .swearwordTimeOut ul{
     list-style-type: square;
+    list-style-position: inside;
     padding-left: 10px;
     padding-bottom: 5px;
-}
-.swearwordTimeOut ul li{
-    padding-left: 10px;
 }
