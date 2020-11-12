@@ -102,33 +102,33 @@ class Editor extends React.Component {
         "perskutarallaa",
         "paskan",
         "hinttari"]
-        
-      const usedBadWords = []
+      
+      //choosing which field was in question and placing the words from said field to fieldWords array
       let fieldWords;
-      
-      if(curseField === "title"){
-        fieldWords = this.props.title.split(" ")
+      if(curseField === "title") fieldWords = this.props.title.split(" ")
+      if(curseField === "body") fieldWords = this.props.body.split(" ")
+      if(curseField === "description") fieldWords = this.props.description.split(" ")
+      if(curseField === "tagit") { 
+          fieldWords = tagArray
+          const currentTag = this.props.tagInput
+          console.log("print taglist")
+          for (let i= 0; i < fieldWords.length;i++){
+            console.log(fieldWords[i])
+          }
+          if (fieldWords.length === 0){
+            fieldWords.push(currentTag)
+          }
+          
+              
       }
-      else if(curseField === "body") fieldWords = this.props.body.split(" ")
-      else if(curseField === "tagit") { 
-        fieldWords = tagArray
-        const currentTag = this.props.tagInput
-        if(fieldWords[fieldWords.length-1] !== currentTag) fieldWords.push(currentTag)
-        for(let i = 0; i < fieldWords.length; i++){
-          (console.log("listicle"))
-          console.log(fieldWords[i])
-        }
-        
-      }
-      else if(curseField === "description") fieldWords = this.props.description.split(" ")
       
-      if(fieldWords.length > 0){
-        
-      for (let i= 0; i < fieldWords.length; i++){
-        let currentWord = fieldWords[i].toLowerCase()
-        console.log("currentWord")
-        console.log(currentWord)
 
+      if(fieldWords.length > 0){
+      //array where we collect the used bad words
+      const usedBadWords = []
+      let currentWord
+      for (let i= 0; i < fieldWords.length; i++){
+        currentWord = fieldWords[i].toLowerCase()
         if (currentWord.length > 1){
         let indexi = badWords.indexOf(currentWord)
         
@@ -141,23 +141,23 @@ class Editor extends React.Component {
 
       console.log("usedBadWords")
       console.log(usedBadWords)
+
+      //making list elements of the elements in usedBadWords and putting them to a ul
       const ul = document.createElement('ul')
       if (usedBadWords.length > 0){
-        //const badWordsList = 
-        usedBadWords.map((badword, index) => {
+        for(let i=0; i < usedBadWords.length;i++){
           let li = document.createElement('li')
-          li.key = index
-          li.appendChild(document.createTextNode(badword))
+          li.key = i
+          li.appendChild(document.createTextNode(usedBadWords[i]))
           ul.appendChild(li)    
              
-        })
+        }
         
+       //setting up the elements to the div and then showing it to the user for 4 seconds 
       const div = document.createElement('div')
       div.className = `swearwordTimeOut`
       let msg = `Hei, huomasitko, että käytit seuraavia kirosanoja
       kirjoituksessasi?`
-      
-      
       div.appendChild(document.createTextNode(msg))
       div.appendChild(ul)
       const form = document.querySelector(placeBelow)
