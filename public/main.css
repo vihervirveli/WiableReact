@@ -5845,5 +5845,8 @@ footer .partner img {
     background-color: #f1f12b; 
     color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+.swearwordTimeOut ul{
     list-style-type: square;
 }
