@@ -92,6 +92,7 @@ class Editor extends React.Component {
   }
 
   render() {
+
     return (
       <div className="editor-page">
         <div className="container page">
@@ -158,6 +159,15 @@ class Editor extends React.Component {
                       }
                     </div>
                   </fieldset>
+                  
+
+                  <button
+                    className="btn btn-lg pull-xs-right btn-danger m-l-1"
+                    type="button"
+                    onClick={() => this.props.history.goBack()}
+                    >
+                    Cancel
+                  </button>
 
                   <button
                     className="btn btn-lg pull-xs-right btn-primary"

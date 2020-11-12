@@ -1,5 +1,5 @@
 import ArticleMeta from './ArticleMeta';
-import Banner from './../Home/Banner';
+import Banner from './../Banner';
 import CommentContainer from './CommentContainer';
 import React from 'react';
 import agent from '../../agent';
@@ -44,7 +44,7 @@ class Article extends React.Component {
       <div className="article-page">
          
 
-        <Banner appName={this.props.appName} />
+        <Banner />
 
 
 

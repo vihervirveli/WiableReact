@@ -11,6 +11,7 @@
     "marked": "^0.3.6",
     "prop-types": "^15.5.10",
     "react": "^16.3.0",
+    "react-cookie-consent": "^6.1.0",
     "react-dom": "^16.3.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.1.2",

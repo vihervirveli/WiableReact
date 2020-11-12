@@ -1,4 +1,4 @@
-import Banner from './Banner';
+import Banner from '../Banner';
 import MainView from './MainView';
 import React from 'react';
 import Tags from './Tags';
@@ -9,6 +9,9 @@ import {
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER
 } from '../../constants/actionTypes';
+//import CookieConsent from "react-cookie-consent";
+import { Link } from 'react-router-dom';
+import CookieConsent, { wimmalabforumcookieconsent } from "react-cookie-consent";
 
 const Promise = global.Promise;
 
@@ -45,7 +48,7 @@ class Home extends React.Component {
     return (
       <div className="home-page">
 
-        <Banner token={this.props.token} appName={this.props.appName} />
+        <Banner/>
 
         <div className="container page">
           <div className="row">
@@ -70,6 +73,25 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
+        
+        <CookieConsent
+        location="bottom"
+        buttonText="Understood"
+        cookieName="wimmalabforumcookieconsent"
+        style={{ background: "#2B373B" }}
+        buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+        expires={150}
+        debug="false"
+      >
+      We use essential cookies to perform essential website functions.{ "  "} 
+
+      
+        <span style={{ fontSize: "10px" }}>
+          <Link className="privacy" to={`/privacy`}>
+          See our Privacy Policy
+          </Link>
+        </span>
+      </CookieConsent>
 
       </div>
     );
