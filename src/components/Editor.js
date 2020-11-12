@@ -112,8 +112,9 @@ class Editor extends React.Component {
       if(fieldWords.length > 0){
       for (let i= 0; i < fieldWords.length; i++){
         let currentWord = fieldWords[i].toLowerCase()
-        console.log(typeof(currentWord))
-        if(badWords.indexOf(currentWord) > -1){
+        let indexi = badWords.indexOf(currentWord)
+        console.log(indexi)
+        if(indexi > -1){
           usedBadWords.push(currentWord)
         }
       }
