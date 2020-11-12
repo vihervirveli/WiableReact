@@ -135,7 +135,7 @@ class Editor extends React.Component {
         
       const div = document.createElement('div')
       div.className = `swearwordTimeOut`
-      let msg = `Hei, tiesitkö, että käytit seuraavia kirosanoja
+      let msg = `Hei, huomasitko, että käytit seuraavia kirosanoja
       kirjoituksessasi?`
       
       
