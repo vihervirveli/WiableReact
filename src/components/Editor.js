@@ -45,10 +45,12 @@ class Editor extends React.Component {
       if (ev.keyCode === 32) { //enter === 13
         ev.preventDefault();
         const tagiArr = this.props.tagList
+        //tagiArr.push(this.props.tagInput)
+        this.props.onAddTag();
         this.testingForBadWords(
             "#tagit","#tagitContainer", 
             "tagit", tagiArr)
-        this.props.onAddTag();
+        
         
       }
     };
@@ -108,30 +110,17 @@ class Editor extends React.Component {
       if(curseField === "title") fieldWords = this.props.title.split(" ")
       if(curseField === "body") fieldWords = this.props.body.split(" ")
       if(curseField === "description") fieldWords = this.props.description.split(" ")
-      if(curseField === "tagit") { 
-          fieldWords = tagArray
-          const currentTag = this.props.tagInput
-          console.log("print taglist")
-          for (let i= 0; i < fieldWords.length;i++){
-            console.log(fieldWords[i])
-          }
-          if (fieldWords.length === 0){
-            fieldWords.push(currentTag)
-          }
-          
-              
-      }
-      
+      if(curseField === "tagit") fieldWords = tagArray     
 
       if(fieldWords.length > 0){
+        for(let i = 0; i < fieldWords.length;i++) console.log(fieldWords[i])
       //array where we collect the used bad words
       const usedBadWords = []
-      let currentWord
+      let currentWord;
       for (let i= 0; i < fieldWords.length; i++){
         currentWord = fieldWords[i].toLowerCase()
         if (currentWord.length > 1){
         let indexi = badWords.indexOf(currentWord)
-        
         if(indexi > -1){
           usedBadWords.push(currentWord)
           console.log("added to usedBadWords")
