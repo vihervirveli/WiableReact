@@ -103,11 +103,13 @@ class Editor extends React.Component {
         "perskuleen",
         "perskutarallaa",
         "paskan",
-        "hinttari"]
+        "hinttari",
+        "runkkari",
+        "paskanmarjat"]
       
       //choosing which field was in question and placing the words from said field to fieldWords array
       let fieldWords;
-      let fieldtags=[];
+      
 
       
       if(curseField === "title") {fieldWords = this.props.title.split(" ")}
@@ -132,13 +134,9 @@ class Editor extends React.Component {
         let indexi = badWords.indexOf(currentWord)
         if(indexi > -1){
           usedBadWords.push(currentWord)
-          console.log("added to usedBadWords")
         }
       }
       }
-
-      console.log("usedBadWords")
-      console.log(usedBadWords)
 
       //making list elements of the elements in usedBadWords and putting them to a ul
       const ul = document.createElement('ul')
