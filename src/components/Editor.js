@@ -44,7 +44,7 @@ class Editor extends React.Component {
     this.watchForEnter = ev => {
       if (ev.keyCode === 13) { 
         ev.preventDefault();
-        const tagiArr = this.props.tagList
+        const tagiArr = [...this.props.tagList]
         tagiArr.push(this.props.tagInput)
         this.props.onAddTag();
         this.testingForBadWords(
@@ -108,20 +108,20 @@ class Editor extends React.Component {
       //choosing which field was in question and placing the words from said field to fieldWords array
       let fieldWords;
       let fieldtags=[];
-      if(curseField === "title") fieldWords = this.props.title.split(" ")
-      if(curseField === "body") fieldWords = this.props.body.split(" ")
-      if(curseField === "description") fieldWords = this.props.description.split(" ")
-      if(curseField === "tagit") {
-        fieldWords = tagArray     
-        if(fieldWords.length >= 2){
-        for(let i = 0; i < fieldWords.length; i++){
-          if(fieldWords[i] === fieldWords[i+1])
-          fieldWords.splice(i+1, 1)
-        }
 
+      
+      if(curseField === "title") {fieldWords = this.props.title.split(" ")}
+      if(curseField === "body") {fieldWords = this.props.body.replace(/\n/g, " ").split(" ") //fieldWords = [...this.props.body].split(" ")
+    }
+      if(curseField === "description") {
+        
+        fieldWords = this.props.description.replace(/\n/g, " ").split(" ") //[...this.props.description].split(" ")
       }
+      if(curseField === "tagit") {
+        fieldWords = tagArray
       }
       if(fieldWords.length > 0){
+        
         for(let i = 0; i < fieldWords.length;i++) console.log(fieldWords[i])
       //array where we collect the used bad words
       const usedBadWords = []
