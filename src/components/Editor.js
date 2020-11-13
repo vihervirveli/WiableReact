@@ -41,8 +41,8 @@ class Editor extends React.Component {
     this.changeBody = updateFieldEvent('body');
     this.changeTagInput = updateFieldEvent('tagInput');
    //his.testingForBadWords = this.testingForBadWords();
-    this.watchForSpace = ev => {
-      if (ev.keyCode === 32) { //enter === 13
+    this.watchForEnter = ev => {
+      if (ev.keyCode === 13) { 
         ev.preventDefault();
         const tagiArr = this.props.tagList
         //tagiArr.push(this.props.tagInput)
@@ -232,10 +232,10 @@ class Editor extends React.Component {
                       id="tagitContainer"
                       className="form-control"
                       type="text"
-                      placeholder="Type in your tags & press space between tags"
+                      placeholder="Type in your tags & press enter between tags"
                       value={this.props.tagInput}
                       onChange={this.changeTagInput}
-                      onKeyUp={this.watchForSpace}
+                      onKeyUp={this.watchForEnter}
                                             
                        />
 
