@@ -124,7 +124,7 @@ class Editor extends React.Component {
       }
       if(fieldWords.length > 0){
         
-        for(let i = 0; i < fieldWords.length;i++) console.log(fieldWords[i])
+    
       //array where we collect the used bad words
       const usedBadWords = []
       let currentWord;
