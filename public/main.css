@@ -5841,18 +5841,3 @@ footer .partner img {
     padding-top: 3px;
 }
 
-.swearwordTimeOut{
-    background-color: #f1f12b; 
-    color: black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border-radius: 5px;
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-.swearwordTimeOut ul{
-    list-style-type: square;
-    list-style-position: inside;
-    padding-left: 10px;
-    padding-bottom: 5px;
-}
