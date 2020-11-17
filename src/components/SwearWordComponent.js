@@ -4,14 +4,15 @@ import React from 'react';
  * Class where one passes the field props, checks them for swear words
  */
 class SwearWordComponent extends React.Component{
-constructor(title, description,body, tagit){
+constructor(props){
     super()
-    this.title = title ? title : "";
-    this.description = description ? description : "";
-    this.body = body ? body : "";
-    this.tagit = tagit
+    this.title = props.title ? props.title : "";
+    this.description = props.description ? props.description : "";
+    this.body = props.body ? props.body : "";
+    this.tagit = props.tagit ? props.tagit : []
     this.displaying = false
-    if(this.title || this.description || this.body || this.tagit){
+    
+if(this.title || this.description || this.body || this.tagit){
         this.displaying = true
     }
     
@@ -46,9 +47,9 @@ constructor(title, description,body, tagit){
     let fieldWords = ''.concat(
         this.title.split(" "),
         ' ',
-        this.props.body.replace(/\n/g, " ").split(" "),
+        this.body.replace(/\n/g, " ").split(" "),
         ' ',
-        this.props.description.replace(/\n/g, " ").split(" "),
+        this.description.replace(/\n/g, " ").split(" "),
         ' ',
         this.tagit.join(' ')
         )
