@@ -80,7 +80,7 @@ if(this.title || this.description || this.body || this.tagit){
             <div style={style}>
                 Hei, huomasitko, että käytit seuraavia kirosanoja kirjoituksessasi?
                 <ul style={styleUL}>
-                    {swearWords.map(word => this.swearWordItem(word))}
+        {swearWords.map((word, index) => <li key={index}>{word}</li>)}
                 </ul>
             </div>
         )
