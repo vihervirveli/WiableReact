@@ -1,13 +1,20 @@
 import React from 'react';
 
-
+/**
+ * Class where one passes the field props, checks them for swear words
+ */
 class SwearWordComponent extends React.Component{
 constructor(title, description,body, tagit){
     super()
-    this.title = title
-    this.description = description
-    this.body = body
+    this.title = title ? title : "";
+    this.description = description ? description : "";
+    this.body = body ? body : "";
     this.tagit = tagit
+    this.displaying = false
+    if(this.title || this.description || this.body || this.tagit){
+        this.displaying = true
+    }
+    
 }
 /**
    * Method to check bad words used in the fields
@@ -35,25 +42,15 @@ constructor(title, description,body, tagit){
       "runkkari",
       "paskanmarjat"
     ]
-    let titleC, bodyC, descriptionC, tagsC;
-    console.log(this.title.length)
-    if(this.title.length === 0 || typeof this.title === 'undefined' || this.title === null){
-      titleC = ""
-    }else {
-      titleC = this.props.title.split(" ")
-    }
-    if(this.props.body.length === 0){
-      bodyC = ""
-    }else {
-      bodyC = this.props.body.replace(/\n/g, " ").split(" ")
-    }
-    if(this.props.description.length === 0){
-      descriptionC = ""
-    }else{
-      descriptionC = this.props.description.replace(/\n/g, " ").split(" ")
-    }
-    tagsC = [...this.props.tagList]
-    let fieldWords = ''.concat(titleC,' ',descriptionC,' ',bodyC,' ',tagsC.join(' ')
+
+    let fieldWords = ''.concat(
+        this.title.split(" "),
+        ' ',
+        this.props.body.replace(/\n/g, " ").split(" "),
+        ' ',
+        this.props.description.replace(/\n/g, " ").split(" "),
+        ' ',
+        this.tagit.join(' ')
         )
   
     const fieldWordsArray = fieldWords.split(" ")
@@ -77,7 +74,7 @@ constructor(title, description,body, tagit){
         paddingLeft: '10px',
         paddingBottom: '5px',
     }
-    if(swearWords.length > 0){
+    if(swearWords.length > 0 && this.displaying){
         return (
             <div style={style}>
                 Hei, huomasitko, että käytit seuraavia kirosanoja kirjoituksessasi?
