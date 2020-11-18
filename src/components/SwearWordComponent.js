@@ -13,7 +13,8 @@ constructor(props){
     
 }
 /**
-   * Method to check bad words used in the fields
+   * Method that checks the words in the fields for bad words and returns an array
+   * with the used bad words
    */
   swearWords() {
     const badWords =
@@ -54,6 +55,10 @@ constructor(props){
     return fieldWordsArray.filter(word => badWords.indexOf(word) > -1)
   }
 
+  /**
+   * Gets the used swearwords from another method and renders them on to the screen
+   * for the user to see
+   */
   swearWordsContent () {
     const swearWords = this.swearWords()
     
