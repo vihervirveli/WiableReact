@@ -58,7 +58,8 @@ const TagFilterTab = props => {
 const mapStateToProps = state => ({
   ...state.articleList,
   tags: state.home.tags,
-  token: state.common.token
+  token: state.common.token,
+  currentUser: state.common.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -88,7 +89,9 @@ const MainView = props => {
         articles={props.articles}
         loading={props.loading}
         articlesCount={props.articlesCount}
-        currentPage={props.currentPage} />
+        currentPage={props.currentPage}
+        currentUser={props.currentUser}
+         />
     </div>
   );
 };
