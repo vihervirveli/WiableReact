@@ -114,7 +114,7 @@ class Editor extends React.Component {
                 body = {this.props.body}
                 tagit = {this.props.tagList}
               />
-              <form id="titleAlertForSwearWords">
+              <form>
                 <fieldset>
 
                   <fieldset className="form-group">
@@ -127,9 +127,8 @@ class Editor extends React.Component {
                       />
                   </fieldset>
 
-                  <fieldset id="description" className="form-group">
+                  <fieldset className="form-group">
                     <input
-                      id="descriptionContainer"
                       className="form-control"
                       type="text"
                       placeholder="What's this article about?"
@@ -138,9 +137,9 @@ class Editor extends React.Component {
                       />
                   </fieldset>
 
-                  <fieldset id="body" className="form-group">
+                  <fieldset className="form-group">
                     <textarea
-                      id="bodyContainer"
+                      
                       className="form-control"
                       rows="8"
                       placeholder="Write your article (in markdown)"
@@ -150,9 +149,8 @@ class Editor extends React.Component {
                     </textarea>
                   </fieldset>
 
-                  <fieldset id="tagit" className="form-group">
+                  <fieldset className="form-group">
                     <input
-                      id="tagitContainer"
                       className="form-control"
                       type="text"
                       placeholder="Type in your tags & press enter between tags"
