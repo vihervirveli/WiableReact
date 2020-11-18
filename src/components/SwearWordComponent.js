@@ -6,7 +6,8 @@ import agent from '../agent';
 class SwearWordComponent extends React.Component{
 constructor(props){
     super(props)
-
+    console.log("swearwordcomp this.props")
+console.log(this.props)
     this.title = props.title ? props.title : "";
     this.description = props.description ? props.description : "";
     this.body = props.body ? props.body : "";

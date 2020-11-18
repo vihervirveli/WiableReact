@@ -63,7 +63,8 @@ class Editor extends React.Component {
         body: this.props.body,
         tagList: this.props.tagList
       };
-
+      console.log("article")
+      console.log(article)
       const slug = { slug: this.props.articleSlug };
       const promise = this.props.articleSlug ?
         agent.Articles.update(Object.assign(article, slug)) :
@@ -99,14 +100,16 @@ class Editor extends React.Component {
  
   
   
-  
   render() {
     return (
       <div className="editor-page">
         <div className="container page">
           <div className="row">
             <div id="containerSwear" className="col-md-10 offset-md-1 col-xs-12">
-
+            <pre>{this.props.title}</pre>
+            <pre>{this.props.description}</pre>
+            <pre>{this.props.body}</pre>
+            <pre>{this.props.tagList}</pre>
               <ListErrors errors={this.props.errors}></ListErrors>
               <SwearWordComponent
                 title={this.props.title}
@@ -123,7 +126,7 @@ class Editor extends React.Component {
                       type="text"
                       placeholder="Article Title"
                       value={this.props.title}
-                      onChange={this.changeTitle}
+                      onChange={this.changeTitle} 
                       />
                   </fieldset>
 
@@ -174,7 +177,7 @@ class Editor extends React.Component {
                       }
                     </div>
                   </fieldset>
-
+                  
                   <button
                     className="btn btn-lg pull-xs-right btn-primary"
                     type="button"
