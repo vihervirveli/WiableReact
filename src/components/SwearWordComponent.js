@@ -66,7 +66,15 @@ componentWillMount() {
     console.log("fieldwordsarray")
 
     console.log(fieldWordsArray)
-    return fieldWordsArray.filter(word => badWords.indexOf(word) > -1)
+    return fieldWordsArray.filter(word => 
+      {
+        let wordTrimmed = word.trim()
+        console.log("check bad words")
+        console.log(badWords.indexOf(word))
+        console.log(word)
+        console.log(word.length)
+        return badWords.indexOf(wordTrimmed) > -1
+      })
   }
 
   swearWordsContent () {

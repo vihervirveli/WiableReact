@@ -103,7 +103,7 @@ class Editor extends React.Component {
   render() {
     console.log("This props")
     console.log(this.props)
-    let titteli = this.props.title
+    //let titteli = this.props.title
     return (
       <div className="editor-page">
         <div className="container page">
@@ -112,7 +112,7 @@ class Editor extends React.Component {
            
               <ListErrors errors={this.props.errors}></ListErrors>
               <SwearWordComponent
-                title={titteli}
+                title={this.props.title}// title={titteli}
                 description = {this.props.description}
                 body = {this.props.body}
                 tagit = {this.props.tagList}
