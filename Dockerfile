@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 8081
 VOLUME /react/sivu
 
 CMD ["npm","start"]
