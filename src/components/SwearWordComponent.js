@@ -1,17 +1,29 @@
 import React from 'react';
-
+import agent from '../agent';
 /**
  * Class where one passes the field props, checks them for swear words
  */
 class SwearWordComponent extends React.Component{
 constructor(props){
-    super()
+    super(props)
+
     this.title = props.title ? props.title : "";
     this.description = props.description ? props.description : "";
     this.body = props.body ? props.body : "";
     this.tagit = props.tagit ? props.tagit : []
-    
 }
+
+componentWillMount() {
+    console.log("componentwillmount moi")
+   console.log(this.props.title)
+    /* if(this.props){
+    if (this.props.match.params.slug) {
+      return this.props.onLoad(agent.Articles.get(this.props.match.params.slug));
+    }
+    this.props.onLoad(null);
+}*/
+  }
+
 /**
    * Method that checks the words in the fields for bad words and returns an array
    * with the used bad words
