@@ -101,18 +101,18 @@ class Editor extends React.Component {
   
   
   render() {
+    console.log("This props")
+    console.log(this.props)
+    let titteli = this.props.title
     return (
       <div className="editor-page">
         <div className="container page">
           <div className="row">
             <div id="containerSwear" className="col-md-10 offset-md-1 col-xs-12">
-            <pre>{this.props.title}</pre>
-            <pre>{this.props.description}</pre>
-            <pre>{this.props.body}</pre>
-            <pre>{this.props.tagList}</pre>
+           
               <ListErrors errors={this.props.errors}></ListErrors>
               <SwearWordComponent
-                title={this.props.title}
+                title={titteli}
                 description = {this.props.description}
                 body = {this.props.body}
                 tagit = {this.props.tagList}

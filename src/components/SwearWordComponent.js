@@ -4,14 +4,13 @@ import agent from '../agent';
  * Class where one passes the field props, checks them for swear words
  */
 class SwearWordComponent extends React.Component{
-constructor(props){
+  
+/*
+  constructor(props){
     super(props)
     console.log("swearwordcomp this.props")
-console.log(this.props)
-    this.title = props.title ? props.title : "";
-    this.description = props.description ? props.description : "";
-    this.body = props.body ? props.body : "";
-    this.tagit = props.tagit ? props.tagit : []
+    console.log(this.props)
+    
 }
 
 componentWillMount() {
@@ -22,13 +21,10 @@ componentWillMount() {
       return this.props.onLoad(agent.Articles.get(this.props.match.params.slug));
     }
     this.props.onLoad(null);
-}*/
-  }
 
-/**
-   * Method that checks the words in the fields for bad words and returns an array
-   * with the used bad words
-   */
+  }*/
+
+
   swearWords() {
     const badWords =
     ["saatana",
@@ -52,26 +48,27 @@ componentWillMount() {
       "runkkari",
       "paskanmarjat"
     ]
-
+    let title = this.props.title ? this.props.title : "";
+    let description = this.props.description ? this.props.description : "";
+    let body = this.props.body ? this.props.body : "";
+    let tagit = this.props.tagit ? this.props.tagit : []
     let fieldWords = ''.concat(
-        this.title.split(" "),
+        title.split(" "),
         ' ',
-        this.body.replace(/\n/g, " ").split(" "),
+        body.replace(/\n/g, " ").split(" "),
         ' ',
-        this.description.replace(/\n/g, " ").split(" "),
+        description.replace(/\n/g, " ").split(" "),
         ' ',
-        this.tagit.join(' ')
+        tagit.join(' ')
         )
-        console.log(fieldWords)
-    const fieldWordsArray = fieldWords.split(" ")
+      
+    const fieldWordsArray = fieldWords.split(",")
+    console.log("fieldwordsarray")
+
     console.log(fieldWordsArray)
     return fieldWordsArray.filter(word => badWords.indexOf(word) > -1)
   }
 
-  /**
-   * Gets the used swearwords from another method and renders them on to the screen
-   * for the user to see
-   */
   swearWordsContent () {
     const swearWords = this.swearWords()
     
@@ -102,7 +99,10 @@ componentWillMount() {
     } else {
         return null
     }}
+ 
       render(){
+        console.log("this props renderistä swearword")
+  console.log(this.props)
         return(this.swearWordsContent())
     }
 }
