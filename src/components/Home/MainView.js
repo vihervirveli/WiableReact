@@ -16,7 +16,7 @@ const YourFeedTab = props => {
         <a  href=""
             className={ props.tab === 'feed' ? 'nav-link active' : 'nav-link' }
             onClick={clickHandler}>
-          Your Feed
+          People you follow
         </a>
       </li>
     );
