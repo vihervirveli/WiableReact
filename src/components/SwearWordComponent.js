@@ -10,11 +10,6 @@ constructor(props){
     this.description = props.description ? props.description : "";
     this.body = props.body ? props.body : "";
     this.tagit = props.tagit ? props.tagit : []
-    this.displaying = false
-    
-if(this.title || this.description || this.body || this.tagit){
-        this.displaying = true
-    }
     
 }
 /**
@@ -53,13 +48,15 @@ if(this.title || this.description || this.body || this.tagit){
         ' ',
         this.tagit.join(' ')
         )
-  
+        console.log(fieldWords)
     const fieldWordsArray = fieldWords.split(" ")
+    console.log(fieldWordsArray)
     return fieldWordsArray.filter(word => badWords.indexOf(word) > -1)
   }
 
   swearWordsContent () {
     const swearWords = this.swearWords()
+    
     const style = {
         backgroundColor: '#f1f12b', 
         color: 'black',
@@ -75,7 +72,7 @@ if(this.title || this.description || this.body || this.tagit){
         paddingLeft: '10px',
         paddingBottom: '5px',
     }
-    if(swearWords.length > 0 && this.displaying){
+    if(swearWords.length > 0 ){
         return (
             <div style={style}>
                 Hei, huomasitko, että käytit seuraavia kirosanoja kirjoituksessasi?
