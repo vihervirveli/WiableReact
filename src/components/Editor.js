@@ -63,8 +63,7 @@ class Editor extends React.Component {
         body: this.props.body,
         tagList: this.props.tagList
       };
-      console.log("article")
-      console.log(article)
+     
       const slug = { slug: this.props.articleSlug };
       const promise = this.props.articleSlug ?
         agent.Articles.update(Object.assign(article, slug)) :
@@ -101,8 +100,7 @@ class Editor extends React.Component {
   
   
   render() {
-    console.log("This props")
-    console.log(this.props)
+   
     //let titteli = this.props.title
     return (
       <div className="editor-page">

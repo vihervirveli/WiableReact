@@ -1,30 +1,13 @@
 import React from 'react';
-import agent from '../agent';
+
 /**
  * Class where one passes the field props, checks them for swear words
  */
 class SwearWordComponent extends React.Component{
   
-/*
-  constructor(props){
-    super(props)
-    console.log("swearwordcomp this.props")
-    console.log(this.props)
-    
-}
-
-componentWillMount() {
-    console.log("componentwillmount moi")
-   console.log(this.props.title)
-    /* if(this.props){
-    if (this.props.match.params.slug) {
-      return this.props.onLoad(agent.Articles.get(this.props.match.params.slug));
-    }
-    this.props.onLoad(null);
-
-  }*/
-
-
+/**
+ * Checks bad words, filters out an array of used bad words
+ */
   swearWords() {
     const badWords =
     ["saatana",
@@ -63,21 +46,19 @@ componentWillMount() {
         )
       
     const fieldWordsArray = fieldWords.split(",")
-    console.log("fieldwordsarray")
-
-    console.log(fieldWordsArray)
+  
     return fieldWordsArray.filter(word => 
       {
         let wordTrimmed = word.trim()
         let wordLC = wordTrimmed.toLowerCase()
-        console.log("check bad words")
-        console.log(badWords.indexOf(word))
-        console.log(word)
-        console.log(word.length)
         return badWords.indexOf(wordLC) > -1
       })
   }
 
+  /**
+   * Takes the used bad words array and depending on whether there are words or not,
+   * spits out our component or null
+   */
   swearWordsContent () {
     const swearWords = this.swearWords()
     
@@ -110,8 +91,6 @@ componentWillMount() {
     }}
  
       render(){
-        console.log("this props renderistä swearword")
-  console.log(this.props)
         return(this.swearWordsContent())
     }
 }
