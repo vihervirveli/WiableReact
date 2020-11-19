@@ -39,3 +39,4 @@ node_modules
 .idea
 
 src/agent.js
+node_modules
