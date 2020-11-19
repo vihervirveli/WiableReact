@@ -54,11 +54,11 @@ componentWillMount() {
     let tagit = this.props.tagit ? this.props.tagit : []
     let fieldWords = ''.concat(
         title.split(" "),
-        ' ',
-        body.replace(/\n/g, " ").split(" "),
-        ' ',
+        ',',
         description.replace(/\n/g, " ").split(" "),
-        ' ',
+        ',',
+        body.replace(/\n/g, " ").split(" "),
+        ',',
         tagit.join(' ')
         )
       
