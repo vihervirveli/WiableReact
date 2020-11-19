@@ -69,11 +69,12 @@ componentWillMount() {
     return fieldWordsArray.filter(word => 
       {
         let wordTrimmed = word.trim()
+        let wordLC = wordTrimmed.toLowerCase()
         console.log("check bad words")
         console.log(badWords.indexOf(word))
         console.log(word)
         console.log(word.length)
-        return badWords.indexOf(wordTrimmed) > -1
+        return badWords.indexOf(wordLC) > -1
       })
   }
 
@@ -100,7 +101,7 @@ componentWillMount() {
             <div style={style}>
                 Hei, huomasitko, että käytit seuraavia kirosanoja kirjoituksessasi?
                 <ul style={styleUL}>
-        {swearWords.map((word, index) => <li key={index}>{word}</li>)}
+        {swearWords.map((word, index) => <li key={index}>{word.toLowerCase()}</li>)}
                 </ul>
             </div>
         )
