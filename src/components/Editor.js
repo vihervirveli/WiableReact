@@ -10,6 +10,8 @@ import {
   EDITOR_PAGE_UNLOADED,
   UPDATE_FIELD_EDITOR
 } from '../constants/actionTypes';
+import { use } from 'marked';
+import SwearWordComponent from './SwearWordComponent.js'
 
 const mapStateToProps = state => ({
   ...state.editor
@@ -30,6 +32,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: UPDATE_FIELD_EDITOR, key, value })
 });
 
+
 class Editor extends React.Component {
   constructor() {
     super();
@@ -40,9 +43,9 @@ class Editor extends React.Component {
     this.changeDescription = updateFieldEvent('description');
     this.changeBody = updateFieldEvent('body');
     this.changeTagInput = updateFieldEvent('tagInput');
-
+   
     this.watchForEnter = ev => {
-      if (ev.keyCode === 13) {
+      if (ev.keyCode === 13) { 
         ev.preventDefault();
         this.props.onAddTag();
       }
@@ -60,7 +63,8 @@ class Editor extends React.Component {
         body: this.props.body,
         tagList: this.props.tagList
       };
-
+      console.log("article")
+      console.log(article)
       const slug = { slug: this.props.articleSlug };
       const promise = this.props.articleSlug ?
         agent.Articles.update(Object.assign(article, slug)) :
@@ -68,7 +72,9 @@ class Editor extends React.Component {
 
       this.props.onSubmit(promise);
     };
+   
   }
+  
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.slug !== nextProps.match.params.slug) {
@@ -91,27 +97,38 @@ class Editor extends React.Component {
     this.props.onUnload();
   }
 
+ 
+  
+  
   render() {
-
+    console.log("This props")
+    console.log(this.props)
+    //let titteli = this.props.title
     return (
       <div className="editor-page">
         <div className="container page">
           <div className="row">
-            <div className="col-md-10 offset-md-1 col-xs-12">
-
+            <div id="containerSwear" className="col-md-10 offset-md-1 col-xs-12">
+           
               <ListErrors errors={this.props.errors}></ListErrors>
-
+              <SwearWordComponent
+                title={this.props.title}// title={titteli}
+                description = {this.props.description}
+                body = {this.props.body}
+                tagit = {this.props.tagList}
+              />
               <form>
                 <fieldset>
 
                   <fieldset className="form-group">
-                    <input
+                    <input                      
                       className="form-control form-control-lg"
                       type="text"
                       maxlength="50"
                       placeholder="Article Title"
                       value={this.props.title}
-                      onChange={this.changeTitle} />
+                      onChange={this.changeTitle} 
+                      />
                   </fieldset>
 
                   <fieldset className="form-group">
@@ -121,16 +138,19 @@ class Editor extends React.Component {
                       maxlength="100"
                       placeholder="What's this article about?"
                       value={this.props.description}
-                      onChange={this.changeDescription} />
+                      onChange={this.changeDescription} 
+                      />
                   </fieldset>
 
                   <fieldset className="form-group">
                     <textarea
+                      
                       className="form-control"
                       rows="8"
                       placeholder="Write your article (in markdown)"
                       value={this.props.body}
-                      onChange={this.changeBody}>
+                      onChange={this.changeBody}
+                      >
                     </textarea>
                   </fieldset>
 
@@ -138,11 +158,11 @@ class Editor extends React.Component {
                     <input
                       className="form-control"
                       type="text"
-                      maxlength="100"
-                      placeholder="Enter tags"
+                      placeholder="Type in your tags & press enter between tags"
                       value={this.props.tagInput}
                       onChange={this.changeTagInput}
-                      onKeyUp={this.watchForEnter} />
+                      onKeyUp={this.watchForEnter}
+                       />
 
                     <div className="tag-list">
                       {
