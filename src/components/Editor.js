@@ -124,6 +124,7 @@ class Editor extends React.Component {
                     <input                      
                       className="form-control form-control-lg"
                       type="text"
+                      maxlength="50"
                       placeholder="Article Title"
                       value={this.props.title}
                       onChange={this.changeTitle} 
@@ -134,6 +135,7 @@ class Editor extends React.Component {
                     <input
                       className="form-control"
                       type="text"
+                      maxlength="100"
                       placeholder="What's this article about?"
                       value={this.props.description}
                       onChange={this.changeDescription} 
@@ -178,6 +180,15 @@ class Editor extends React.Component {
                     </div>
                   </fieldset>
                   
+
+                  <button
+                    className="btn btn-lg pull-xs-right btn-danger m-l-1"
+                    type="button"
+                    onClick={() => this.props.history.goBack()}
+                    >
+                    Cancel
+                  </button>
+
                   <button
                     className="btn btn-lg pull-xs-right btn-primary"
                     type="button"

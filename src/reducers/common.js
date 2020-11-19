@@ -37,8 +37,18 @@ export default (state = defaultState, action) => {
     case LOGOUT:
       return { ...state, redirectTo: '/', token: null, currentUser: null };
     case ARTICLE_SUBMITTED:
-      const redirectUrl = `/article/${action.payload.article.slug}`;
-      return { ...state, redirectTo: redirectUrl };
+      //const redirectUrl = `/article/${action.payload.article.slug}`;
+      //return { ...state, redirectTo: redirectUrl };
+      if(!action.error){
+          const redirectUrl = `article/${action.payload.article.slug}`;
+          return { ...state, redirectTo: redirectUrl };
+        }
+      return {
+            ...state,
+            inProgress: null,
+            errors: action.error? 
+               (action.payload? action.payload.errors: ["Too long"]) : null
+         };
     case SETTINGS_SAVED:
       return {
         ...state,
