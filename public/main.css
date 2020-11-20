@@ -5433,6 +5433,7 @@ footer{
     position:absolute;
     /*bottom:0;*/
     width:100%;
+    color: #fff;
 
 }
 footer .logo-font{
@@ -5460,6 +5461,16 @@ footer .partner {
 footer .partner img {
     width: 90%;
 }
+footer .copyright {
+    width: 40%;
+    float: left;
+    padding: 5% 0;
+    font-size: 0.8em;
+    text-align: center;
+}
+footer .copyright a{
+    margin-left: 5px;
+}    
 .error-messages{
     color:#b85c5c!important;
     font-weight:700

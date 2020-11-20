@@ -9,9 +9,9 @@ import {
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER
 } from '../../constants/actionTypes';
-//import CookieConsent from "react-cookie-consent";
 import { Link } from 'react-router-dom';
-import CookieConsent, { wimmalabforumcookieconsent } from "react-cookie-consent";
+//Cookie bar - uncomment when it's appears in some US.
+//import CookieConsent, { wimmalabforumcookieconsent } from "react-cookie-consent";
 
 const Promise = global.Promise;
 
@@ -73,7 +73,8 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-        
+{/*     
+It's too early for this bar. Uncomment when appears in the future - US.
         <CookieConsent
         location="bottom"
         buttonText="Understood"
@@ -92,7 +93,7 @@ class Home extends React.Component {
           </Link>
         </span>
       </CookieConsent>
-
+*/}
       </div>
     );
   }
