@@ -11,7 +11,15 @@ class Footer extends React.Component {
                     <img src={require('./images/wimmalab-logo-rect-bgtransparent.png')} />
                 </a>
                 </div>
-                
+                <div className="copyright">
+
+                    Copyright 2020 Wimmalab.
+
+                    <Link className="privacy" to={`/privacy`}>
+                      See our Privacy Policy
+                    </Link>
+                  
+                </div>  
                 <div className="partner">
                 <a href="http://www.jamk.fi">  
                     <img src={require('./images/jamklogo.png')} />
