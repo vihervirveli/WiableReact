@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "app-root-path": "^3.0.0",
+    "config": "^3.3.2",
     "express": "^4.17.1",
     "history": "^4.6.3",
     "marked": "^0.3.6",
