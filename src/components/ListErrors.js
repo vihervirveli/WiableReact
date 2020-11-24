@@ -10,7 +10,8 @@ class ListErrors extends React.Component {
             Object.keys(errors).map(key => {
               return (
                 <li key={key}>
-                  {key} {errors[key]}
+                  {/* just a hack to put the first letter in uppercase*/}
+                  {key[0].toUpperCase() + key.slice(1)} {errors[key]}
                 </li>
               );
             })
