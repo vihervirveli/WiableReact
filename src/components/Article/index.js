@@ -6,7 +6,7 @@ import agent from '../../agent';
 import { connect } from 'react-redux';
 import marked from 'marked';
 import { ARTICLE_PAGE_LOADED, ARTICLE_PAGE_UNLOADED } from '../../constants/actionTypes';
-
+import {TwitterShareButton, TwitterIcon} from "react-share";
 const mapStateToProps = state => ({
   ...state.article,
   currentUser: state.common.currentUser,
@@ -86,6 +86,17 @@ class Article extends React.Component {
           <hr />
 
           <div className="article-actions">
+            <div className="sharebuttons">
+              <span className="sharetxt">Tell your friends: </span>
+              <TwitterShareButton
+                url={window.location.href}
+                title={"Wimmalab Forum: "+this.props.article.title}
+                className="twitter_share-button">
+                <TwitterIcon
+                  size={22}
+                  round />
+              </TwitterShareButton>                        
+            </div>
           </div>
 
           <div className="row">

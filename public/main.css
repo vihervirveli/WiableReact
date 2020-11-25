@@ -5722,6 +5722,13 @@ footer .copyright a{
 .article-page .article-actions .article-meta .info{
     text-align:left
 }
+.article-page .article-actions .sharebuttons{
+    display: inline-flex;
+}
+.article-page .article-actions .sharebuttons .sharetxt{
+    margin-right: 5px;
+    
+}
 .article-page .comment-form .card-block{
     padding:0
 }

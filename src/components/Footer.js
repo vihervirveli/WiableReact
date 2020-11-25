@@ -22,7 +22,7 @@ class Footer extends React.Component {
                 </div>  
                 <div className="partner">
                 <a href="http://www.jamk.fi">  
-                    <img src={require('./images/jamklogo.png')} />
+                    <img src={require('./images/jamk_tunnus_valkoinen_nimella_englanti.png')} />
                 </a>
                 </div>
         </div>
