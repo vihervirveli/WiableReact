@@ -42,7 +42,7 @@ class SwearWordComponent extends React.Component{
         ',',
         body.replace(/\n/g, " ").split(" "),
         ',',
-        tagit.join(' ')
+        tagit.join(',')
         )
       
     const fieldWordsArray = fieldWords.split(",")
