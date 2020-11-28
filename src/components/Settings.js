@@ -51,7 +51,7 @@ class SettingsForm extends React.Component {
         password:'required|string|min:6|confirmed'  //confirmed will check for the password confirmation
       };
 
-      /*validateAll(data, rules)
+    /*  validateAll(data, rules)
       .then(() => {
         console.log('success')
       })
