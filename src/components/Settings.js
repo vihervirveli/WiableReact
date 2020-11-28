@@ -7,7 +7,7 @@ import {
   SETTINGS_PAGE_UNLOADED,
   LOGOUT
 } from '../constants/actionTypes';
-import { validateAll} from "indicative/validator"
+//import { validateAll} from "indicative/validator"
 
 class SettingsForm extends React.Component {
   constructor() {
@@ -51,7 +51,7 @@ class SettingsForm extends React.Component {
         password:'required|string|min:6|confirmed'  //confirmed will check for the password confirmation
       };
 
-      validateAll(data, rules)
+      /*validateAll(data, rules)
       .then(() => {
         console.log('success')
       })
@@ -61,7 +61,7 @@ class SettingsForm extends React.Component {
         const formattedErrors = {}
         errors.forEach( error => formattedErrors[error.field] = error.message)
         this.setState({errors: formattedErrors})
-      })
+      }) */
 
 
       const messages = {
