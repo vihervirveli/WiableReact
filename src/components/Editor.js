@@ -145,6 +145,7 @@ class Editor extends React.Component {
                       
                       className="form-control"
                       rows="8"
+                      maxlength="20000"
                       placeholder="Write your article (in markdown)"
                       value={this.props.body}
                       onChange={this.changeBody}
