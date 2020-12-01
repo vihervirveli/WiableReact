@@ -1,5 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {
+  LOGOUT
+} from '../constants/actionTypes';
+
+const mapStateToProps = state => ({
+  ...state.settings,
+  currentUser: state.common.currentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+  onClickLogout: () => dispatch({ type: LOGOUT }),
+});
 
 const LoggedOutView = props => {
   if (!props.currentUser) {
@@ -70,8 +83,15 @@ const LoggedInView = props => {
             {props.currentUser.username}
           </Link>
         </li>
-
+        <li className="nav-item">
+            <button
+            className="btn btn-outline-danger"
+            onClick={props.onClickLogout}>
+            Logout
+            </button>             
+        </li>
       </ul>
+
     );
   }
 
@@ -92,8 +112,8 @@ class Header extends React.Component {
           </a>
           <LoggedOutView currentUser={this.props.currentUser} />
 
-          <LoggedInView currentUser={this.props.currentUser} />
-          
+          <LoggedInView currentUser={this.props.currentUser} onClickLogout={this.props.onClickLogout}/>
+      
           <a href="http://www.wimmalab.org">   
           <img src={require('./images/wimmalab-logo-square-small-green.png')} />
           </a>
@@ -104,4 +124,5 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+//export default Header;
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

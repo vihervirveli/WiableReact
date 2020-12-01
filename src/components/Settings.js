@@ -348,13 +348,15 @@ class Settings extends React.Component {
 
               <hr />
               <label></label>
-
+{/*
+I'll comment this logout button here, because we moved it to navbar. But, if in future we want it back here, just uncomment it.
+If not, delete it someday.. =)
               <button
                 className="btn btn-outline-danger"
                 onClick={this.props.onClickLogout}>
                 Or click here to logout.
               </button>
-
+*/}
             </div>
           </div>
         </div>
